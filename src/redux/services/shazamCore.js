@@ -7,16 +7,16 @@ export const shazamCoreApi = createApi({
     baseQuery: fetchBaseQuery({
         baseUrl: baseURL,
         prepareHeaders: (headers) => {
-            headers.set('X-RapidAPI-Key', 'bb4467594emshfbec6589d11288ep10463ejsnba6e65514b71')
+            headers.set('X-RapidAPI-Key', import.meta.env.VITE_SHAZAM_CORE_RAPID_API_KEY)
             return headers
         }
     }),
     endpoints: (builder) => ({
-      getNaijaTopChart: builder.query({query: () => '/charts/country?country_code=US'}),
+      getWorldTopChart: builder.query({query: () => '/charts/world'}),
       getSongDetails: builder.query({query: (songId) => `/tracks/details?track_id=${songId}`}),
       getRelatedSongs: builder.query({query: (songId) => `/tracks/related?track_id=${songId}`}),
       getArtistDetails: builder.query({query: (artistId) => `/artists/details?artist_id=${artistId}`})
     })
 })
 
-export const {useGetNaijaTopChartQuery,useGetSongDetailsQuery,useGetRelatedSongsQuery,useGetArtistDetailsQuery} = shazamCoreApi
+export const {useGetWorldTopChartQuery,useGetSongDetailsQuery,useGetRelatedSongsQuery,useGetArtistDetailsQuery} = shazamCoreApi

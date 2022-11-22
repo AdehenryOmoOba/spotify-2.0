@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { FreeMode } from "swiper";
 import {Swiper, SwiperSlide} from "swiper/react"
 import { setActiveSong, playPause} from "../redux/features/playerSlice";
-import { useGetNaijaTopChartQuery } from "../redux/services/shazamCore";
+import { useGetWorldTopChartQuery } from "../redux/services/shazamCore";
 import PlayPause from "./PlayPause";
 
 const TopChartCard = ({song, i, isPlaying, activeSong, handlePauseClick, handlePlayClick}) => (
@@ -30,7 +30,7 @@ const TopChartCard = ({song, i, isPlaying, activeSong, handlePauseClick, handleP
 const TopPlay = () => {
   const dispatch = useDispatch()
   const {activeSong, isPlaying} = useSelector((state) => state.player)
-  const {data} = useGetNaijaTopChartQuery()
+  const {data} = useGetWorldTopChartQuery()
   const divRef = useRef(null)
   useEffect(() => {
    divRef.current.scrollIntoView({behavior:"smooth"})

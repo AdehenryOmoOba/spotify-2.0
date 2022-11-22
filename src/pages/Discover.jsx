@@ -1,6 +1,6 @@
 import { Loader , SongCard, Error} from "../components";
 import {genres} from '../assets/constants'
-import { useGetNaijaTopChartQuery } from "../redux/services/shazamCore";
+import { useGetWorldTopChartQuery } from "../redux/services/shazamCore";
 import { useDispatch , useSelector} from "react-redux";
 
 
@@ -8,7 +8,7 @@ import { useDispatch , useSelector} from "react-redux";
 const Discover = () => {
   const dispatch = useDispatch()
   const {activeSong, isPlaying} = useSelector((state) => state.player)
-  const {data, isFetching, error} = useGetNaijaTopChartQuery()
+  const {data, isFetching, error} = useGetWorldTopChartQuery()
 
   console.log(data)
 
