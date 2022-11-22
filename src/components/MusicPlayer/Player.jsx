@@ -20,6 +20,9 @@ const Player = ({ activeSong, isPlaying, volume, seekTime, onEnded, onTimeUpdate
     ref.current.currentTime = seekTime;
   }, [seekTime]);
 
+  console.log(activeSong?.hub?.actions[1]?.uri)
+  console.log({activeSong})
+
   return (
     <audio
       src={activeSong?.hub?.actions[1]?.uri}
